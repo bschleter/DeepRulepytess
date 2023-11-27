@@ -55,7 +55,7 @@ def ocr_result(image_path):
 
     return word_infos
 #usage with whatever Path-example in google drive 
-image_path = '/content/drive/MyDrive/evalset_fqa/vbar/bitmap'
+image_path = '/content/drive/MyDrive/data/evalset_fqa/vbar/bitmap'
 image_names = os.listdir(image_path)
 for name in ['495.jpg', '151.jpg']:
     image_file_path = os.path.join(image_path, name)
