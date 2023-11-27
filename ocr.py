@@ -3,9 +3,11 @@ import time
 import json
 import os
 from PIL import Image, ImageEnhance
+import pytesseract
+
 def ocr_space_file(filename, overlay=False, api_key='e61f4d4c3488957', language='eng'):
     """ OCR.space API request with local file.
-        Python3.5 - not tested on 2.7
+        Python3.7 - not tested on 2.7
     :param filename: Your file path & name.
     :param overlay: Is OCR.space overlay required in your response.
                     Defaults to False.
@@ -43,7 +45,7 @@ def ocr_result(image_path):
         for word in words:
             if not word:
                 continue
-            # Assuming that word_info["boundingBox"] should be in the format [left, top, right, bottom]
+            # Assuming that word_info["boundingBox"] should be in the format [topleft_x, topleft_y, topleft_x, bottomleft_y]
             bounding_box = [0, 0, 0, 0]
             word_info = {
                 "text": word,
